@@ -4,7 +4,7 @@ Pesquisa sobre **Instagram, marketing digital e assuntos estudantis**, com consu
 
 Este guia documenta o script `pesquisar.py`. O fluxo foi organizado para uso pelo Terminal no **macOS Intel, sem Homebrew**, e pode apoiar o levantamento bibliográfico de pesquisas sobre Centros de Assuntos Estudantis (CAEST).
 
-> Este é um fluxo de pesquisa baseado no Findpapers, não o repositório oficial da biblioteca. O script coleta e organiza registros; a decisão de inclusão na revisão depende de avaliação metodológica e leitura dos estudos.
+> Este é um fluxo de pesquisa baseado no [Findpapers](https://github.com/jonatasgrosman/findpapers), não o repositório oficial da biblioteca. O script coleta e organiza registros; a decisão de inclusão na revisão depende de avaliação metodológica e leitura dos estudos.
 
 ## Sumário
 
@@ -58,6 +58,10 @@ O script utiliza também `csv`, `json`, `sys`, `time`, `pathlib` e `datetime`, q
 **Compatibilidade:** confira se o instalador do Python escolhido suporta sua versão do macOS. A exigência de Python 3.11+ não significa que qualquer versão recente de Python funcione em qualquer macOS antigo.
 
 ## Instalação
+
+```bash
+pip install git+https://github.com/jonatasgrosman/findpapers.git
+```
 
 ### 1. Verificar o ambiente
 
@@ -253,14 +257,14 @@ O JSON tratado inclui `metadata`, `query`, `databases`, `total_papers`, `databas
 | Coluna             | Significado                             | Observações                                           |
 | ------------------ | --------------------------------------- | ----------------------------------------------------- |
 | `title`            | Título                                  | Pode estar ausente                                    |
-| `authors`          | Autores                                 | Nomes separados por `;`                              |
+| `authors`          | Autores                                 | Nomes separados por `;`                               |
 | `publication_date` | Data de publicação                      | Formato e precisão dependem da fonte                  |
 | `doi`              | Identificador DOI                       | Pode estar ausente                                    |
 | `url`              | Endereço do registro                    | Não garante acesso ao texto integral                  |
 | `pdf_url`          | Endereço de PDF                         | Pode estar ausente ou indisponível                    |
 | `language`         | Idioma informado                        | Não é tradução nem detecção local                     |
 | `paper_type`       | Tipo documental                         | Conforme metadados retornados                         |
-| `keywords`         | Palavras-chave                          | Valores separados por `;`                            |
+| `keywords`         | Palavras-chave                          | Valores separados por `;`                             |
 | `found_in`         | Bases associadas ao artigo              | Nomes normalizados em minúsculas                      |
 | `database_count`   | Quantidade de bases em `found_in`       | Não é contagem de duplicatas removidas                |
 | `citations`        | Citações informadas                     | Pode variar entre fontes e datas                      |
