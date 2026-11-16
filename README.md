@@ -2,7 +2,7 @@
 
 Pesquisa sobre **Instagram, marketing digital e assuntos estudantis**, com consulta multilíngue e exportação de metadados para análise acadêmica.
 
-Este guia documenta o script `pesquisar.py` apresentado no material “02 Instalação e Configuração FindPaper”. O fluxo foi organizado para uso pelo Terminal no **macOS Intel, sem Homebrew**, e pode apoiar o levantamento bibliográfico de pesquisas sobre Centros de Assuntos Estudantis (CAEST).
+Este guia documenta o script `pesquisar.py`. O fluxo foi organizado para uso pelo Terminal no **macOS Intel, sem Homebrew**, e pode apoiar o levantamento bibliográfico de pesquisas sobre Centros de Assuntos Estudantis (CAEST).
 
 > Este é um fluxo de pesquisa baseado no Findpapers, não o repositório oficial da biblioteca. O script coleta e organiza registros; a decisão de inclusão na revisão depende de avaliação metodológica e leitura dos estudos.
 
@@ -45,13 +45,13 @@ Não estão implementados neste script: tradução automática, classificação 
 
 ## Requisitos
 
-| Item | Uso |
-| --- | --- |
-| Python 3.11 ou superior | Execução e ambiente virtual |
-| Git | Instalação da dependência diretamente do GitHub |
-| Conexão à internet | Instalação e consultas às APIs |
-| Findpapers | Biblioteca externa de busca e consolidação |
-| Credenciais das bases selecionadas | Acesso conforme as condições de cada provedor |
+| Item                               | Uso                                             |
+| ---------------------------------- | ----------------------------------------------- |
+| Python 3.11 ou superior            | Execução e ambiente virtual                     |
+| Git                                | Instalação da dependência diretamente do GitHub |
+| Conexão à internet                 | Instalação e consultas às APIs                  |
+| Findpapers                         | Biblioteca externa de busca e consolidação      |
+| Credenciais das bases selecionadas | Acesso conforme as condições de cada provedor   |
 
 O script utiliza também `csv`, `json`, `sys`, `time`, `pathlib` e `datetime`, que fazem parte da biblioteca padrão do Python. Não é necessário instalar pandas, NumPy, PyTorch ou Gemini para este fluxo.
 
@@ -102,16 +102,16 @@ A instalação acompanha o código disponível no GitHub. Como a branch `main` p
 
 ## Bases e credenciais
 
-| Base | Identificador em `DATABASES` | Credencial no fluxo documentado |
-| --- | --- | --- |
-| arXiv | `arxiv` | Sem chave |
-| IEEE Xplore | `ieee` | Chave necessária |
-| OpenAlex | `openalex` | Opcional segundo a documentação do Findpapers consultada |
-| PubMed | `pubmed` | Opcional segundo a documentação do Findpapers consultada |
-| Scopus | `scopus` | Chave necessária; permissões dependem do acesso contratado |
-| Semantic Scholar | `semantic_scholar` | Opcional segundo a documentação do Findpapers consultada |
-| Web of Science | `wos` | Chave necessária; permissões dependem do plano |
-| CrossRef | Não incluído | Enriquecimento/referências; não é fonte de `Engine.search()` neste fluxo |
+| Base             | Identificador em `DATABASES` | Credencial no fluxo documentado                                          |
+| ---------------- | ---------------------------- | ------------------------------------------------------------------------ |
+| arXiv            | `arxiv`                      | Sem chave                                                                |
+| IEEE Xplore      | `ieee`                       | Chave necessária                                                         |
+| OpenAlex         | `openalex`                   | Opcional segundo a documentação do Findpapers consultada                 |
+| PubMed           | `pubmed`                     | Opcional segundo a documentação do Findpapers consultada                 |
+| Scopus           | `scopus`                     | Chave necessária; permissões dependem do acesso contratado               |
+| Semantic Scholar | `semantic_scholar`           | Opcional segundo a documentação do Findpapers consultada                 |
+| Web of Science   | `wos`                        | Chave necessária; permissões dependem do plano                           |
+| CrossRef         | Não incluído                 | Enriquecimento/referências; não é fonte de `Engine.search()` neste fluxo |
 
 A documentação geral menciona oito integrações, mas o script configura **sete fontes de busca**. O script não chama explicitamente operações de enriquecimento ou snowballing; essas possibilidades da biblioteca não devem ser confundidas com etapas implementadas aqui.
 
@@ -176,10 +176,10 @@ Esse teste verifica apenas a presença da variável, não a validade da credenci
 
 A consulta combina três blocos obrigatórios por `AND`. Dentro de cada bloco, sinônimos são associados por `OR`:
 
-| Bloco | Exemplos presentes no script |
-| --- | --- |
-| Plataforma | `Instagram` |
-| Marketing e comunicação | `digital marketing`, `marketing digital`, `promotion`, `communication`, `engagement`, `outreach` |
+| Bloco                          | Exemplos presentes no script                                                                                                            |
+| ------------------------------ | --------------------------------------------------------------------------------------------------------------------------------------- |
+| Plataforma                     | `Instagram`                                                                                                                             |
+| Marketing e comunicação        | `digital marketing`, `marketing digital`, `promotion`, `communication`, `engagement`, `outreach`                                        |
 | Assuntos e serviços estudantis | `Centro de Assuntos Estudantis`, `Student Affairs`, `Student Services`, `Servicios Estudiantiles`, `Student Support`, `Vida Estudantil` |
 
 A consulta integral está na variável `QUERY` do apêndice. A sintaxe utiliza termos entre colchetes e agrupamentos entre parênteses.
@@ -235,14 +235,14 @@ deactivate
 
 ## Arquivos de saída
 
-| Arquivo | Conteúdo e finalidade |
-| --- | --- |
-| `resultados/findpapers_raw_search.json` | Resultado bruto serializado pela biblioteca; criação tentada e status registrado |
-| `resultados/artigos.json` | Registros normalizados, metadados da execução, consulta, bases e contagens |
-| `resultados/artigos.csv` | Tabela de 17 colunas para análise em Excel, Python ou ferramentas de BI |
-| `resultados/artigos.bib` | Exportação BibTeX dos objetos retornados; criação tentada e status registrado |
-| `resultados/artigos_completos.txt` | Listagem legível de metadados e resumos; **não contém o texto integral dos artigos** |
-| `resultados/resumo_busca.txt` | Relatório da execução, ordenação, contagens e status das exportações |
+| Arquivo                                 | Conteúdo e finalidade                                                                |
+| --------------------------------------- | ------------------------------------------------------------------------------------ |
+| `resultados/findpapers_raw_search.json` | Resultado bruto serializado pela biblioteca; criação tentada e status registrado     |
+| `resultados/artigos.json`               | Registros normalizados, metadados da execução, consulta, bases e contagens           |
+| `resultados/artigos.csv`                | Tabela de 17 colunas para análise em Excel, Python ou ferramentas de BI              |
+| `resultados/artigos.bib`                | Exportação BibTeX dos objetos retornados; criação tentada e status registrado        |
+| `resultados/artigos_completos.txt`      | Listagem legível de metadados e resumos; **não contém o texto integral dos artigos** |
+| `resultados/resumo_busca.txt`           | Relatório da execução, ordenação, contagens e status das exportações                 |
 
 O CSV utiliza vírgula como delimitador e `UTF-8 com BOM` (`utf-8-sig`). Se o Excel abrir tudo em uma coluna, importe por **Dados → De Texto/CSV**, selecionando UTF-8 e delimitador vírgula. Valores múltiplos dentro de uma célula usam ponto e vírgula.
 
@@ -250,25 +250,25 @@ O JSON tratado inclui `metadata`, `query`, `databases`, `total_papers`, `databas
 
 ## Dicionário dos dados
 
-| Coluna | Significado | Observações |
-| --- | --- | --- |
-| `title` | Título | Pode estar ausente |
-| `authors` | Autores | Nomes separados por `; ` |
-| `publication_date` | Data de publicação | Formato e precisão dependem da fonte |
-| `doi` | Identificador DOI | Pode estar ausente |
-| `url` | Endereço do registro | Não garante acesso ao texto integral |
-| `pdf_url` | Endereço de PDF | Pode estar ausente ou indisponível |
-| `language` | Idioma informado | Não é tradução nem detecção local |
-| `paper_type` | Tipo documental | Conforme metadados retornados |
-| `keywords` | Palavras-chave | Valores separados por `; ` |
-| `found_in` | Bases associadas ao artigo | Nomes normalizados em minúsculas |
-| `database_count` | Quantidade de bases em `found_in` | Não é contagem de duplicatas removidas |
-| `citations` | Citações informadas | Pode variar entre fontes e datas |
-| `is_open_access` | Indicador de acesso aberto | Ausência de valor não significa `False` |
-| `is_retracted` | Indicador de retratação | Ausência de valor não comprova ausência de retratação |
-| `reference_count` | Tamanho da lista `references` retornada | Zero pode indicar dados não recuperados |
-| `cited_by_count` | Tamanho da lista `cited_by` retornada | Não necessariamente igual a `citations` |
-| `abstract` | Resumo | Pode estar ausente; não é texto integral |
+| Coluna             | Significado                             | Observações                                           |
+| ------------------ | --------------------------------------- | ----------------------------------------------------- |
+| `title`            | Título                                  | Pode estar ausente                                    |
+| `authors`          | Autores                                 | Nomes separados por `;`                              |
+| `publication_date` | Data de publicação                      | Formato e precisão dependem da fonte                  |
+| `doi`              | Identificador DOI                       | Pode estar ausente                                    |
+| `url`              | Endereço do registro                    | Não garante acesso ao texto integral                  |
+| `pdf_url`          | Endereço de PDF                         | Pode estar ausente ou indisponível                    |
+| `language`         | Idioma informado                        | Não é tradução nem detecção local                     |
+| `paper_type`       | Tipo documental                         | Conforme metadados retornados                         |
+| `keywords`         | Palavras-chave                          | Valores separados por `;`                            |
+| `found_in`         | Bases associadas ao artigo              | Nomes normalizados em minúsculas                      |
+| `database_count`   | Quantidade de bases em `found_in`       | Não é contagem de duplicatas removidas                |
+| `citations`        | Citações informadas                     | Pode variar entre fontes e datas                      |
+| `is_open_access`   | Indicador de acesso aberto              | Ausência de valor não significa `False`               |
+| `is_retracted`     | Indicador de retratação                 | Ausência de valor não comprova ausência de retratação |
+| `reference_count`  | Tamanho da lista `references` retornada | Zero pode indicar dados não recuperados               |
+| `cited_by_count`   | Tamanho da lista `cited_by` retornada   | Não necessariamente igual a `citations`               |
+| `abstract`         | Resumo                                  | Pode estar ausente; não é texto integral              |
 
 O script converte muitos valores ausentes em string vazia. As listas de referências e citações recebidas não são preservadas no JSON tratado: somente suas contagens. Consulte o bruto quando essas listas forem necessárias.
 
@@ -290,14 +290,14 @@ Essa ordenação não mede qualidade metodológica nem aderência ao tema. A fre
 
 Edite as constantes e a chamada de busca no próprio `pesquisar.py`; o script não implementa argumentos de linha de comando.
 
-| Configuração | Local | Efeito |
-| --- | --- | --- |
-| Termos e combinações | `QUERY` | Define a estratégia temática |
-| Bases | `DATABASES` | Define os provedores solicitados |
-| Diretório | `OUTPUT_DIR` | Define onde os arquivos serão gravados |
-| Paralelismo | `num_workers=4` | Define o número de trabalhadores da busca |
-| Mensagens | `verbose=True` | Habilita detalhes da execução |
-| Progresso | `show_progress=True` | Habilita a indicação de progresso |
+| Configuração         | Local                | Efeito                                    |
+| -------------------- | -------------------- | ----------------------------------------- |
+| Termos e combinações | `QUERY`              | Define a estratégia temática              |
+| Bases                | `DATABASES`          | Define os provedores solicitados          |
+| Diretório            | `OUTPUT_DIR`         | Define onde os arquivos serão gravados    |
+| Paralelismo          | `num_workers=4`      | Define o número de trabalhadores da busca |
+| Mensagens            | `verbose=True`       | Habilita detalhes da execução             |
+| Progresso            | `show_progress=True` | Habilita a indicação de progresso         |
 
 Para gravar perto do script, substitua a definição do diretório por:
 
@@ -338,22 +338,22 @@ Para uso em revisão acadêmica, registre também os critérios de inclusão/exc
 
 ## Solução de problemas
 
-| Problema | Verificação e ação |
-| --- | --- |
-| `python3` antigo ou incorreto | Confira `command -v python3`; recrie o ambiente com o interpretador compatível |
-| `ModuleNotFoundError: findpapers` | Ative `.venv` e instale usando `python -m pip` no mesmo ambiente |
-| Git ausente na instalação | Verifique `git --version` e instale as ferramentas da Apple |
-| Erro 401 ou 403 | Confira variável, validade da chave, permissões e acesso institucional |
-| Erro 429 | Aguarde a liberação da quota e reduza concorrência se necessário |
-| Timeout ou erro 5xx | Verifique conexão e disponibilidade do provedor; preserve a execução antes de repetir |
-| Nenhum resultado | Teste uma base e consulta menores; confira sintaxe, credenciais e restrição dos três blocos |
-| `TypeError` em `Engine.search()` | Compare os parâmetros com a API da revisão instalada |
-| JSON bruto ou BibTeX ausente | Leia o status no terminal e em `resumo_busca.txt`; o script captura essas falhas |
-| CSV em uma coluna | Importe com delimitador vírgula e codificação UTF-8 |
-| Resumos ou DOI vazios | Confira o bruto; metadados podem não ter sido disponibilizados pela fonte |
-| Resultados fora da pasta esperada | Confira o diretório atual com `pwd` ou use caminho baseado em `__file__` |
-| Contagem zero em uma base | Investigue logs; zero não distingue ausência de resultados de falha de acesso |
-| Erro de certificado SSL | Confira data/hora, certificados do Python e configuração de rede; mantenha a validação TLS |
+| Problema                          | Verificação e ação                                                                          |
+| --------------------------------- | ------------------------------------------------------------------------------------------- |
+| `python3` antigo ou incorreto     | Confira `command -v python3`; recrie o ambiente com o interpretador compatível              |
+| `ModuleNotFoundError: findpapers` | Ative `.venv` e instale usando `python -m pip` no mesmo ambiente                            |
+| Git ausente na instalação         | Verifique `git --version` e instale as ferramentas da Apple                                 |
+| Erro 401 ou 403                   | Confira variável, validade da chave, permissões e acesso institucional                      |
+| Erro 429                          | Aguarde a liberação da quota e reduza concorrência se necessário                            |
+| Timeout ou erro 5xx               | Verifique conexão e disponibilidade do provedor; preserve a execução antes de repetir       |
+| Nenhum resultado                  | Teste uma base e consulta menores; confira sintaxe, credenciais e restrição dos três blocos |
+| `TypeError` em `Engine.search()`  | Compare os parâmetros com a API da revisão instalada                                        |
+| JSON bruto ou BibTeX ausente      | Leia o status no terminal e em `resumo_busca.txt`; o script captura essas falhas            |
+| CSV em uma coluna                 | Importe com delimitador vírgula e codificação UTF-8                                         |
+| Resumos ou DOI vazios             | Confira o bruto; metadados podem não ter sido disponibilizados pela fonte                   |
+| Resultados fora da pasta esperada | Confira o diretório atual com `pwd` ou use caminho baseado em `__file__`                    |
+| Contagem zero em uma base         | Investigue logs; zero não distingue ausência de resultados de falha de acesso               |
+| Erro de certificado SSL           | Confira data/hora, certificados do Python e configuração de rede; mantenha a validação TLS  |
 
 As exportações CSV, JSON tratado e TXT não possuem tratamento individual de exceções. Falta de permissão ou espaço em disco pode interromper a execução. Uma mensagem final de conclusão também não comprova, por si só, que todos os provedores responderam integralmente.
 
@@ -363,16 +363,16 @@ Salve este documento como **`README.md`**, na raiz do repositório. O nome conve
 
 Organização sugerida, a ser criada pelo responsável:
 
-| Caminho | Finalidade | Versionar? |
-| --- | --- | --- |
-| `README.md` | Documentação | Sim |
-| `pesquisar.py` | Código do apêndice | Sim |
-| `.gitignore` | Exclusões de arquivos locais | Sim |
-| `.env.example` | Modelo sem segredos | Sim |
-| `.env` | Credenciais reais | Não |
-| `requirements-lock.txt` | Ambiente validado | Sim, após revisão |
-| `LICENSE` | Licença escolhida pelo responsável | Após definição |
-| `resultados/` | Saídas da pesquisa | Somente após avaliar permissões e necessidade |
+| Caminho                 | Finalidade                         | Versionar?                                    |
+| ----------------------- | ---------------------------------- | --------------------------------------------- |
+| `README.md`             | Documentação                       | Sim                                           |
+| `pesquisar.py`          | Código do apêndice                 | Sim                                           |
+| `.gitignore`            | Exclusões de arquivos locais       | Sim                                           |
+| `.env.example`          | Modelo sem segredos                | Sim                                           |
+| `.env`                  | Credenciais reais                  | Não                                           |
+| `requirements-lock.txt` | Ambiente validado                  | Sim, após revisão                             |
+| `LICENSE`               | Licença escolhida pelo responsável | Após definição                                |
+| `resultados/`           | Saídas da pesquisa                 | Somente após avaliar permissões e necessidade |
 
 Crie `.gitignore` com:
 
@@ -485,13 +485,13 @@ QUERY = """
 )
 AND
 (
-    [Centro de Assuntos Estudantis] OR 
-    [Assuntos Estudantis] OR 
-    [Student Affairs Center] OR 
-    [Student Affairs] OR 
-    [Student Services] OR 
-    [Centro de Asuntos Estudiantiles] OR 
-    [Asuntos Estudiantiles] OR 
+    [Centro de Assuntos Estudantis] OR
+    [Assuntos Estudantis] OR
+    [Student Affairs Center] OR
+    [Student Affairs] OR
+    [Student Services] OR
+    [Centro de Asuntos Estudiantiles] OR
+    [Asuntos Estudiantiles] OR
     [Servicios Estudiantiles] OR
     [Student Support] OR
     [Student Support Services] OR
@@ -559,23 +559,23 @@ def get_authors(paper, data_dict=None):
     authors = getattr(paper, "authors", None)
     if authors is None and isinstance(data_dict, dict):
         authors = data_dict.get("authors")
-        
+
     if not authors:
         return ""
-        
+
     if isinstance(authors, str):
         return authors.strip()
-        
+
     names = []
     for author in normalize_list(authors):
         if isinstance(author, dict):
             name = author.get("name", "")
         else:
             name = getattr(author, "name", str(author))
-            
+
         if name:
             names.append(str(name).strip())
-            
+
     return "; ".join(names)
 
 def paper_to_dict(paper):
@@ -653,13 +653,13 @@ paper_data = []
 
 for paper in papers:
     data = paper_to_dict(paper)
-    
+
     # Extração de campos complexos normalizados (priorizando found_in)
     raw_found_in = get_field(paper, data, "found_in") or get_field(paper, data, "databases")
     found_in_list = normalize_list(raw_found_in)
-    
+
     found_in_normalized = sorted({str(db).strip().lower() for db in found_in_list if db})
-    
+
     for db_name in found_in_normalized:
         if db_name in database_counts:
             database_counts[db_name] += 1
@@ -738,9 +738,9 @@ with open(json_file, "w", encoding="utf-8") as f:
 # 2 — CSV TRATADO
 csv_file = OUTPUT_DIR / "artigos.csv"
 csv_fields = [
-    "title", "authors", "publication_date", "doi", "url", "pdf_url", 
-    "language", "paper_type", "keywords", "found_in", "database_count", 
-    "citations", "is_open_access", "is_retracted", "reference_count", 
+    "title", "authors", "publication_date", "doi", "url", "pdf_url",
+    "language", "paper_type", "keywords", "found_in", "database_count",
+    "citations", "is_open_access", "is_retracted", "reference_count",
     "cited_by_count", "abstract"
 ]
 with open(csv_file, "w", newline="", encoding="utf-8-sig") as f:
@@ -796,23 +796,23 @@ with open(summary_file, "w", encoding="utf-8") as f:
     f.write(f"Python version: {PYTHON_VERSION}\n")
     f.write(f"Findpapers version: {FINDPAPERS_VERSION}\n")
     f.write(f"\nTotal de artigos únicos consolidados: {total_papers}\n\n")
-    
+
     f.write("BASES CONSULTADAS:\n")
     for database in DATABASES:
         f.write(f"- {database}\n")
     f.write("\n")
-    
+
     f.write("ARTIGOS ÚNICOS IDENTIFICADOS POR BASE:\n")
     for database, count in database_counts.items():
         f.write(f"{database}: {count} artigos\n")
-    
+
     f.write("\nCRITÉRIO DE ORDENAÇÃO DOS RESULTADOS:\n")
     f.write("1. Maior número de bases em que o artigo foi identificado\n")
     f.write("2. Maior número de citações\n")
     f.write("3. Título em ordem alfabética\n\n")
-    
+
     f.write(f"\nCONSULTA UTILIZADA:\n{QUERY}\n")
-    
+
     f.write("\n" + "=" * 70 + "\n")
     f.write("ARQUIVOS GERADOS\n")
     f.write("=" * 70 + "\n\n")
