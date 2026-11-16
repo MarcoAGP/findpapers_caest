@@ -435,7 +435,7 @@ Ao citar a pesquisa, identifique seu repositório e versão, registre a data da 
 
 ## Referências
 
-- Material de origem: **02 Instalação e Configuração FindPaper**, fornecido com o script “Versão Melhorada”.
+- Material de origem:
 - [Findpapers — repositório e instalação](https://github.com/jonatasgrosman/findpapers).
 - [Findpapers — bases de dados](https://github.com/jonatasgrosman/findpapers/blob/main/docs/databases.md).
 - [Findpapers — configuração](https://github.com/jonatasgrosman/findpapers/blob/main/docs/configuration.md).
