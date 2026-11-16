@@ -1,0 +1,86 @@
+RELATÓRIO DA BUSCA BIBLIOGRÁFICA
+======================================================================
+
+Data: 2026-10-24 22:13:38
+Tempo de execução: 0:10:21
+Python version: 3.13.5
+Findpapers version: Desconhecida
+
+Total de artigos únicos consolidados: 822
+
+BASES CONSULTADAS:
+- arxiv
+- ieee
+- openalex
+- pubmed
+- scopus
+- semantic_scholar
+- wos
+
+ARTIGOS ÚNICOS IDENTIFICADOS POR BASE:
+arxiv: 0 artigos
+ieee: 15 artigos
+openalex: 292 artigos
+pubmed: 15 artigos
+scopus: 67 artigos
+semantic_scholar: 0 artigos
+wos: 532 artigos
+
+CRITÉRIO DE ORDENAÇÃO DOS RESULTADOS:
+1. Maior número de bases em que o artigo foi identificado
+2. Maior número de citações
+3. Título em ordem alfabética
+
+
+CONSULTA UTILIZADA:
+
+[Instagram] AND
+(
+    [digital marketing] OR
+    [online marketing] OR
+    [social media marketing] OR
+    [marketing digital] OR
+    [marketing nas redes sociais] OR
+    [marketing em mídias sociais] OR
+    [marketing en redes sociales] OR
+    [marketing de redes sociales] OR
+    [promotion] OR
+    [communication] OR
+    [engagement] OR
+    [outreach] OR
+    [digital communication] OR
+    [social media strategy]
+)
+AND
+(
+    [Centro de Assuntos Estudantis] OR 
+    [Assuntos Estudantis] OR 
+    [Student Affairs Center] OR 
+    [Student Affairs] OR 
+    [Student Services] OR 
+    [Centro de Asuntos Estudiantiles] OR 
+    [Asuntos Estudiantiles] OR 
+    [Servicios Estudiantiles] OR
+    [Student Support] OR
+    [Student Support Services] OR
+    [Student Engagement] OR
+    [Student Life] OR
+    [Student Development] OR
+    [Student Welfare] OR
+    [Apoio Estudantil] OR
+    [Vida Estudantil] OR
+    [Apoyo Estudiantil] OR
+    [Vida Estudiantil]
+)
+
+
+======================================================================
+ARQUIVOS GERADOS
+======================================================================
+
+RAW: resultados/findpapers_raw_search.json — OK
+CSV: resultados/artigos.csv
+JSON tratado: resultados/artigos.json
+BibTeX: resultados/artigos.bib — OK
+Texto completo: resultados/artigos_completos.txt
+Relatório da busca: resultados/resumo_busca.txt
