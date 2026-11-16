@@ -59,10 +59,6 @@ O script utiliza também `csv`, `json`, `sys`, `time`, `pathlib` e `datetime`, q
 
 ## Instalação
 
-```bash
-pip install git+https://github.com/jonatasgrosman/findpapers.git
-```
-
 ### 1. Verificar o ambiente
 
 ```bash
