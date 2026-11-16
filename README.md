@@ -192,7 +192,7 @@ Os sinônimos em três idiomas não impõem um filtro de idioma. O script també
 
 ### 1. Criar o script
 
-Copie o código do [apêndice](#apêndice-script-completo) para um arquivo chamado `pesquisar.py` na pasta `~/findpapers`. O apêndice preserva o código da seção “Versão Melhorada” do material de origem.
+Copie o código do [apêndice](#apêndice-script-completo) para um arquivo chamado `pesquisar.py` na pasta `~/findpapers`. O apêndice preserva o código da seção “Versão Melhorada” do material de origem ou baixe o arquivo [pesquisar.py](https://github.com/MarcoAGP/findpapers_caest/blob/MarcoAGP/pesquisar.py) diretamente do repositório.
 
 ### 2. Escolher as bases
 
