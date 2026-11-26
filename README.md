@@ -25,7 +25,6 @@ Este guia documenta o script `pesquisar.py`. O fluxo foi organizado para uso pel
 - [Limitações e melhorias](#limitações-e-melhorias)
 - [Contribuições, créditos e licença](#contribuições-créditos-e-licença)
 - [Referências](#referências)
-- [Apêndice: script completo](#apêndice-script-completo)
 
 ## Objetivo e funcionalidades
 
@@ -192,7 +191,7 @@ Os sinônimos em três idiomas não impõem um filtro de idioma. O script també
 
 ### 1. Criar o script
 
-Copie o código do [apêndice](#apêndice-script-completo) para um arquivo chamado `pesquisar.py` na pasta `~/findpapers`. O apêndice preserva o código da seção “Versão Melhorada” do material de origem ou baixe o arquivo [pesquisar.py](https://github.com/MarcoAGP/findpapers_caest/blob/MarcoAGP/pesquisar.py) diretamente do repositório.
+Crie um arquivo chamado `pesquisar.py` na pasta `~/findpapers` e copie o conteúdo do arquivo [pesquisar.py](https://github.com/MarcoAGP/findpapers_caest/blob/MarcoAGP/pesquisar.py) que está no repositório ou baixe o arquivo [pesquisar.py](https://github.com/MarcoAGP/findpapers_caest/blob/MarcoAGP/pesquisar.py) diretamente do repositório.
 
 ### 2. Escolher as bases
 
